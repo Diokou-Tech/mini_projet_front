@@ -7,6 +7,7 @@ import { NewsComponent } from './components/news/news.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
 import { EditInfoComponent } from './edit-info/edit-info.component';
+import { ReactiveFormsModule } from '@angular/forms';
 const appRoutes : Routes = [
   {
     path: '', component: NewsComponent
@@ -24,6 +25,7 @@ const appRoutes : Routes = [
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes)

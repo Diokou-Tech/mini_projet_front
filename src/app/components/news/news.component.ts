@@ -12,6 +12,7 @@ export class NewsComponent implements OnInit {
   perPage:Number =10;
   page:Number =1;
   lastPage:Number = 6;
+  is_valid: boolean = false;
   response:any;
   constructor(private dataService:DataService) {
     this.news = new Array<Info>();
@@ -27,6 +28,7 @@ export class NewsComponent implements OnInit {
       this.news = [];
       this.response = res;
       this.news = this.response.data;
+      this.is_valid =true;
       this.total = this.response.total;
       this.perPage = this.response.perPage;
       this.page = this.response.page;

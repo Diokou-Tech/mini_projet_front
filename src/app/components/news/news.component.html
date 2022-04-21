@@ -1,11 +1,7 @@
 <!-- paginations  -->
-    <ul class="pagination">
-      <li *ngFor="let index of [1,2,3,4,5,6]"  class="page-item m-2">
-          <a (click)="paginer(index)" class="page-link pointer-cursor">
-            {{ index }}
-          </a>
-        </li>
-    </ul>
+    <div>
+        <div  *ngIf="news.length == 0" class="alert alert-warning col-6">Veuillez allumer l'api pour recupérer les données ! c'est le projet Laravel (mini_back) ! Rafraichir ______div>
+    </div>
 <div class="row">
     <div *ngFor="let new of news" class="col-4">
         <div class="card">
@@ -26,5 +22,13 @@
             </div>
           </div>
     </div>
-
+</div>
+<div class="row">
+  <ul class="pagination d-flex justify-content-center text-center col-12">
+    <li *ngFor="let index of [1,2,3,4]"  class="page-item bg-primary m-2">
+        <a (click)="paginer(index)" class="page-link pointer-cursor">
+          {{ index }}
+        </a>
+      </li>
+  </ul>
 </div>
