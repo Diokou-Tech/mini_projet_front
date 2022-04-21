@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../service/data.service';
 import { FormGroup,FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-edit-info',
   templateUrl: './edit-info.component.html',
@@ -12,7 +13,7 @@ export class EditInfoComponent implements OnInit {
   info : Info ;
   titre :any;
   description : any;
-  constructor(private route:ActivatedRoute,private dataService:DataService) { 
+  constructor(private route:ActivatedRoute,private dataService:DataService,private router: Router) { 
     this.info = new Info;
   }
 
@@ -26,6 +27,8 @@ export class EditInfoComponent implements OnInit {
   }
   save (){
     console.log(this.info,'info à modifier ',this.editForm.value, 'edit form');
+    alert("Modification avec succès");
+      this.router.navigate(['/']);
   }
   editForm =  new FormGroup({
     titre : new FormControl(''),
