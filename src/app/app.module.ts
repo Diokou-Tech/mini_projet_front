@@ -6,16 +6,21 @@ import { AppComponent } from './app.component';
 import { NewsComponent } from './components/news/news.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
+import { EditInfoComponent } from './edit-info/edit-info.component';
 const appRoutes : Routes = [
   {
     path: '', component: NewsComponent
+  },
+  {
+    path: 'edit/:titre', component: EditInfoComponent
   }
 ]
 @NgModule({
   declarations: [
     AppComponent,
     NewsComponent,
-    NavbarComponent
+    NavbarComponent,
+    EditInfoComponent
   ],
   imports: [
     BrowserModule,
