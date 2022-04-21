@@ -1,1 +1,13 @@
-<p>news works!</p>
+<div class="row">
+    <div *ngFor="let new of news" class="col-4">
+        <div class="card">
+            <img src="{{ new.image.url }}" alt="" class="avatar">
+            <div class="card-body">
+              <h5 class="card-title">{{ new.titre }}</h5>
+              <p class="card-text">{{ new.description }}</p>
+              <a href="{{ new.lien }}" target="_blank" class="btn btn-primary">Voir Plus</a>
+            </div>
+          </div>
+    </div>
+
+</div>

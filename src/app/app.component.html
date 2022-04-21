@@ -1,20 +1,14 @@
-<style>
-  div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  p{
-    width: 50%;
-  }
-  h1{
-    text-align: center;
-  }
-</style>
-<h1 class="">Mon premier promgramme angular</h1>
-<div>
-  <p class="jumbotron">
-   sci dolorem iusto praesentium dolore. Veniam minima reiciendis officiis, harum accusantium odio aliquam modi, blanditiis sequi corporis, unde molestias eius rerum excepturi impedit ducimus praesentium nemo beatae reprehenderit cupiditate. Dolorum.
-  </p>
+<app-navbar></app-navbar>
+<hr>
+<div class="row">
+  <div class="col mt-5 mb-5">
+    <div class="col-md-8 mx-auto">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
-<app-news></app-news>
+<div class="container">
+  <router-outlet>
+
+  </router-outlet>
+</div>
