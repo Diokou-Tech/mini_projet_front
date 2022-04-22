@@ -40,4 +40,12 @@ export class NewsComponent implements OnInit {
     console.log('page',this.page);
     this.getDataNews();
   }
+  updateInfo (){
+    this.dataService.updateInfo().subscribe(res=>{
+      console.log('update infos',res);
+      this.response = res;
+      this.news = this.response.data.data;
+      alert(this.response.data.message);
+    })
+  }
 }
