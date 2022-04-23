@@ -1,6 +1,7 @@
 import { Info } from './../../info';
 import { DataService } from './../../service/data.service';
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
@@ -27,6 +28,7 @@ export class NewsComponent implements OnInit {
       console.log('recuperation des données ZOLA');
       this.news = [];
       this.response = res;
+      console.log(res);
       this.news = this.response.data;
       this.is_valid =true;
       this.total = this.response.total;
@@ -41,11 +43,25 @@ export class NewsComponent implements OnInit {
     this.getDataNews();
   }
   updateInfo (){
+    this.alertInfo('Informations en cours ...');
     this.dataService.updateInfo().subscribe(res=>{
       console.log('update infos',res);
       this.response = res;
       this.news = this.response.data.data;
-      alert(this.response.data.message);
+      console.log('message',this.response.message);  
+      // alert(this.response.message);
+    })  
+  }
+  alertInfo(msg:any){
+    Swal.fire({
+      text: msg,
+      title : 'Mise à jour',
+      timerProgressBar: true,
+      timer: 2000,
+      icon: 'info',
+      position: 'top-end',
+      showConfirmButton: false,
+      toast: true,
     })
   }
 }

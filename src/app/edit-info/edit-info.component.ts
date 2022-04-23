@@ -21,14 +21,14 @@ export class EditInfoComponent implements OnInit {
     console.log('test edit info le parametre recupéré ' + this.route.snapshot.params['titre']);
     this.dataService.getDataOne(this.route.snapshot.params['titre']).subscribe(res=>{
       console.log(res);
-      this.info = res.data;
       this.editForm.setValue(this.info);
     });
   }
-  save (){
+  save(){
     console.log(this.info,'info à modifier ',this.editForm.value, 'edit form');
-    alert("Modification avec succès");
-      this.router.navigate(['/']);
+    this.info.titre = this.editForm.value.titre;
+    this.info.description = this.editForm.value.description;
+    console.log('info after edit',this.info);
   }
   editForm =  new FormGroup({
     titre : new FormControl(''),
