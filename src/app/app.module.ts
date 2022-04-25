@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
 import { EditInfoComponent } from './edit-info/edit-info.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 const appRoutes : Routes = [
   {
     path: '', component: NewsComponent
@@ -28,6 +29,7 @@ const appRoutes : Routes = [
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
+    NgxPaginationModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
