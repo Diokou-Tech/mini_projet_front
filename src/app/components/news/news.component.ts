@@ -31,25 +31,29 @@ export class NewsComponent implements OnInit {
       // this.perPage = this.response.perPage;
       // this.page = this.response.page;
       // this.lastPage = this.response.lastPage;
+    },error => {
+    this.alerter('Erreur recuperation des données !','error');
+      console.log('Erreur recuperation des données ZOLA');
     });
   }
   updateInfo (){
-    this.alertInfo('Informations en cours ...');
+    this.alerter('mise à jour en cours ...','info');
     this.dataService.updateInfo().subscribe(res=>{
       console.log('update infos',res);
       this.response = res;
       this.news = this.response.data.data;
       console.log('message',this.response.message);  
       // alert(this.response.message);
+    }, error => {
+    this.alerter('Erreur mise à jour des données !','error');
     })  
   }
-  alertInfo(msg:any){
+  alerter(msg:any,ic:any){
     Swal.fire({
-      text: msg,
-      title : 'Mise à jour',
+      title : msg,
       timerProgressBar: true,
       timer: 2000,
-      icon: 'info',
+      icon: ic,
       position: 'top-end',
       showConfirmButton: false,
       toast: true,
